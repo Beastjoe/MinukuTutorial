@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/exploded-aar/com.github.Shriti-UCI/minukuextended/-SNAPSHOT/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="efadfa6f0c356ce05e7e41f45830a987720770b3">
+        <dex dex="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.Shriti-UCI-minukuextended--SNAPSHOT_38c2e79a92208822ae5ac2dcd7302f016381498b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/exploded-aar/com.github.Shriti-UCI/minukucore/-SNAPSHOT/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="79a36c933c6643f02bd22f69f24e492848f23976">
+        <dex dex="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.Shriti-UCI-minukucore--SNAPSHOT_823465a72d2639e0790940355da22968295d6b19/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e4687936d64c52292e09ce7bf92d4d9a3ce0e577">
+        <dex dex="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_34eb883a925f4090e34234f9dff85c8a77e17e6f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/mwnewman/Code/minuku/MinukuTutorial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_a5227414f925fa682230eeab51d88e0ee00e064d/classes.dex" />
+    </item>
+
+</items>
