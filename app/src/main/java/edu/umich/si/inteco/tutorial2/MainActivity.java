@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView latitude = null;
     TextView longitude = null;
+    TextView accelerometer=null;
     LocationDataRecord currentLocation = null;
+    //SensorDataRecord currentSensor=null;
     private static final int READ_LOCATION = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
+        accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
 
         Constants.getInstance().setFirebaseUrl(getResources().getString(R.string.UNIQUE_FIREBASE_ROOT_URL));
         Constants.getInstance().setAppName(getResources().getString(R.string.app_name));
@@ -64,9 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
         LocationDataRecordDAO locationDAO = new LocationDataRecordDAO();
         daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);
+        // SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
+        //daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
 
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
+        //SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
 
         LocationChangeSituation situation = new LocationChangeSituation();
         LocationChangeAction action = new LocationChangeAction();
@@ -75,6 +82,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        accelerometer.setText("Unknown");
+        /*try {
+            currentSensor =
+                    MinukuStreamManager.getInstance().getStreamFor(SensorDataRecord.class).getCurrentValue();
+        } catch (StreamNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(currentSensor!= null) {
+            accelerometer.setText(String.valueOf(currentSensor.getAccelerometer()));
+        }
+        else {
+            accelerometer.setText("unknown");
+        }
+        */
 
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
