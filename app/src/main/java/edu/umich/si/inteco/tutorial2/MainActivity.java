@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
-        accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
+        // accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
 
         Constants.getInstance().setFirebaseUrl(getResources().getString(R.string.UNIQUE_FIREBASE_ROOT_URL));
         Constants.getInstance().setAppName(getResources().getString(R.string.app_name));
