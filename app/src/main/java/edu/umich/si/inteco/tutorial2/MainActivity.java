@@ -1,7 +1,14 @@
 package edu.umich.si.inteco.tutorial2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+/*
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+*/
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -11,32 +18,43 @@ import android.widget.TextView;
 import edu.umich.si.inteco.minuku.config.Constants;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.LocationDataRecordDAO;
+import edu.umich.si.inteco.minuku.dao.SensorDataRecordDAO;
 import edu.umich.si.inteco.minuku.manager.MinukuDAOManager;
 import edu.umich.si.inteco.minuku.manager.MinukuNotificationManager;
 import edu.umich.si.inteco.minuku.manager.MinukuStreamManager;
 import edu.umich.si.inteco.minuku.model.LocationDataRecord;
+import edu.umich.si.inteco.minuku.model.SensorDataRecord;
 import edu.umich.si.inteco.minuku.streamgenerator.LocationStreamGenerator;
+import edu.umich.si.inteco.minuku.streamgenerator.SensorStreamGenerator;
 import edu.umich.si.inteco.minukucore.exception.StreamNotFoundException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     TextView latitude = null;
     TextView longitude = null;
     TextView accelerometer=null;
     LocationDataRecord currentLocation = null;
-    //SensorDataRecord currentSensor=null;
+    SensorDataRecord currentSensor=null;
     private static final int READ_LOCATION = 1;
-
+    //private SensorManager sensorManager;
+    //private Sensor mAccelerometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);*/
+
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
-        // accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
+        accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
         // TODO: implementation
+
+
+
 
         Constants.getInstance().setFirebaseUrl(getResources().getString(R.string.UNIQUE_FIREBASE_ROOT_URL));
         Constants.getInstance().setAppName(getResources().getString(R.string.app_name));
@@ -69,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
 
         LocationDataRecordDAO locationDAO = new LocationDataRecordDAO();
         daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);
-        // SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
-        //daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
+         SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
+        daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
 
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
-        //SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
+        SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
 
         LocationChangeSituation situation = new LocationChangeSituation();
         LocationChangeAction action = new LocationChangeAction();
@@ -83,20 +101,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        accelerometer.setText("Unknown");
-        /*try {
+        //accelerometer.setText("Unknown");
+        try {
             currentSensor =
                     MinukuStreamManager.getInstance().getStreamFor(SensorDataRecord.class).getCurrentValue();
         } catch (StreamNotFoundException e) {
             e.printStackTrace();
         }
         if(currentSensor!= null) {
-            accelerometer.setText(String.valueOf(currentSensor.getAccelerometer()));
+            accelerometer.setText(String.valueOf(currentSensor.getAccelerometerX()));
         }
         else {
             accelerometer.setText("unknown");
         }
-        */
+
 
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -144,4 +162,14 @@ public class MainActivity extends AppCompatActivity {
             longitude.setText("unknown");
         }
     }
+
+   /* @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }*/
 }
