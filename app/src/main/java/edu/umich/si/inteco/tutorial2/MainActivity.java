@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity  {
 
     TextView latitude = null;
     TextView longitude = null;
-    TextView accelerometer=null;
+    TextView accelerometer_x=null;
+    TextView accelerometer_y=null;
+    TextView accelerometer_z=null;
     LocationDataRecord currentLocation = null;
     SensorDataRecord currentSensor=null;
     private static final int READ_LOCATION = 1;
@@ -50,7 +52,9 @@ public class MainActivity extends AppCompatActivity  {
 
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
-        accelerometer=(TextView) findViewById(R.id.curr_accelerometer) ;
+        accelerometer_x=(TextView) findViewById(R.id.curr_accelerometerx) ;
+        accelerometer_y=(TextView) findViewById(R.id.curr_accelerometery) ;
+        accelerometer_z=(TextView) findViewById(R.id.curr_accelerometerz) ;
         // TODO: implementation
 
 
@@ -109,10 +113,15 @@ public class MainActivity extends AppCompatActivity  {
             e.printStackTrace();
         }
         if(currentSensor!= null) {
-            accelerometer.setText(String.valueOf(currentSensor.getAccelerometerX()));
+            accelerometer_x.setText(String.valueOf(currentSensor.getAccelerometerX()));
+            accelerometer_y.setText(String.valueOf(currentSensor.getAccelerometerY()));
+            accelerometer_z.setText(String.valueOf(currentSensor.getAccelerometerZ()));
+
         }
         else {
-            accelerometer.setText("unknown");
+            accelerometer_x.setText("unknown");
+            accelerometer_y.setText("unknown");
+            accelerometer_z.setText("unknown");
         }
 
 

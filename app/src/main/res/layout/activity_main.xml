@@ -31,7 +31,17 @@
         android:layout_gravity="center"/>
 
     <TextView
-        android:id="@+id/curr_accelerometer"
+        android:id="@+id/curr_accelerometerx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/curr_accelerometery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/curr_accelerometerz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
