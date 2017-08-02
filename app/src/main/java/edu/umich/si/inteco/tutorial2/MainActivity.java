@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity  {
 
         LocationDataRecordDAO locationDAO = new LocationDataRecordDAO();
         daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);
-         SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
+        SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
         daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
 
         LocationStreamGenerator locationStreamGenerator =
