@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('/Users/starry/.android/debug.keystore')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "25.0.0"
     defaultConfig {
@@ -10,41 +18,52 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resValue "string", "UNIQUE_FIREBASE_ROOT_URL", "\"https://minuku1-edbe4.firebaseio.com/\""
+        resValue "string", "UNIQUE_FIREBASE_ROOT_URL", "\"http://minukututorial.firebaseio.com/\""
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.MinukuTutorialTest_APK
+        }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.config
         }
     }
-
-
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/LICENSE'
     }
+    productFlavors {
+        flavor {
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     //add dependencies
     compile 'com.android.support:appcompat-v7:24.2.1'
-
     //compile
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.guava:guava:19.0'
     compile 'com.bugfender.sdk:android:0.+'
     compile 'com.firebase:firebase-client-android:2.4.0'
-    compile 'com.github.Cattostar:minukuextended:-SNAPSHOT'
+    //compile 'com.github.Cattostar:minukuextended:-SNAPSHOT'
+    compile 'com.github.Cattostar:MinukuExtendedTest:-SNAPSHOT'
     compile 'com.github.Cattostar:minukucore:-SNAPSHOT'
     //compile 'com.github.InteractionEcologies:minukucore:-SNAPSHOT'
     compile 'com.google.android.gms:play-services-maps:9.2.1'
+    //a google play service is required,is the same with location?
     compile 'com.google.android.gms:play-services-location:9.2.1'
+    compile 'com.google.android.gms:play-services-fitness:9.2.1'
+    //google fitness
+    compile 'com.google.android.gms:play-services-wearable:9.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
