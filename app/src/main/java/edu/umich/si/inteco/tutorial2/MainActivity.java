@@ -42,6 +42,7 @@ import com.google.android.gms.fitness.result.DataSourcesResult;
 import java.util.concurrent.TimeUnit;
 
 import edu.umich.si.inteco.minuku.config.Constants;
+import edu.umich.si.inteco.minuku.config.PassFitData;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.ActivityDataRecordDAO;
 import edu.umich.si.inteco.minuku.dao.FitDataRecordDAO;
@@ -76,13 +77,14 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
     SensorDataRecord currentSensor=null;
     ActivityDataRecord currentActivity=null;
     FitDataRecord currentStepCount=null;
+    PassFitData currentPassFitData=null;
 
 
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
     private GoogleApiClient mApiClient;//in the main activity
-    private CommonStatusCodes commonStatusCodes=null;
+    //private CommonStatusCodes commonStatusCodes=null;
 
 
     private static final int READ_LOCATION = 1;
@@ -156,8 +158,8 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
 
         LocationDataRecordDAO locationDAO = new LocationDataRecordDAO();
         daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);
-        //FitDataRecordDAO fitDAO = new FitDataRecordDAO();
-        //daoManager.registerDaoFor(FitDataRecord.class, fitDAO);
+        FitDataRecordDAO fitDAO = new FitDataRecordDAO();
+        daoManager.registerDaoFor(FitDataRecord.class, fitDAO);
         ActivityDataRecordDAO activityDAO = new ActivityDataRecordDAO();
         daoManager.registerDaoFor(ActivityDataRecord.class, activityDAO);
         SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
                 new LocationStreamGenerator(getApplicationContext());
         SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
         ActivityStreamGenerator activityStreamGenerator= new ActivityStreamGenerator(getApplicationContext());
-        //FitStreamGenerator fitStreamGenerator= new FitStreamGenerator(getApplicationContext());
+        FitStreamGenerator fitStreamGenerator= new FitStreamGenerator(getApplicationContext());
 
         LocationChangeSituation situation = new LocationChangeSituation();
         LocationChangeAction action = new LocationChangeAction();
@@ -345,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
 
         for( final Field field : dataPoint.getDataType().getFields() ) {
             final Value value = dataPoint.getValue( field );
-
+            currentPassFitData.setFitData(value.asInt());
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
