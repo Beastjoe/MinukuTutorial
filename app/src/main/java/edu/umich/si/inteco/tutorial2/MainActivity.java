@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import com.bugfender.sdk.Bugfender;
 /*
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
 
     private void setUserID() {
         if (UserPreferences.getInstance().getPreference(Constants.ID_SHAREDPREF_EMAIL) == null) {
-            String email = "starry2@example,com"; // would be replaced by the user's email
+            String email = "starry3@email,com"; // would be replaced by the user's email
             UserPreferences.getInstance().writePreference(Constants.ID_SHAREDPREF_EMAIL, email);
             UserPreferences.getInstance().writePreference(Constants.KEY_ENCODED_EMAIL,
                     encodeEmail(email));
@@ -162,12 +163,12 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
         daoManager.registerDaoFor(FitDataRecord.class, fitDAO);
         ActivityDataRecordDAO activityDAO = new ActivityDataRecordDAO();
         daoManager.registerDaoFor(ActivityDataRecord.class, activityDAO);
-        SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
-        daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
+        //SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
+        //daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
 
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
-        SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
+        //SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
         ActivityStreamGenerator activityStreamGenerator= new ActivityStreamGenerator(getApplicationContext());
         FitStreamGenerator fitStreamGenerator= new FitStreamGenerator(getApplicationContext());
 
@@ -322,7 +323,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
             SensorRequest request = new SensorRequest.Builder()
                     .setDataSource( dataSource )
                     .setDataType( dataType )
-                    .setSamplingRate( 3, TimeUnit.SECONDS )
+                    .setSamplingRate( 1, TimeUnit.SECONDS )
                     .build();
 
             Fitness.SensorsApi.add( mApiClient, request, this )
