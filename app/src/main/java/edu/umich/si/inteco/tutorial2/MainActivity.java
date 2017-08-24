@@ -12,6 +12,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 */
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -163,12 +164,12 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
         daoManager.registerDaoFor(FitDataRecord.class, fitDAO);
         ActivityDataRecordDAO activityDAO = new ActivityDataRecordDAO();
         daoManager.registerDaoFor(ActivityDataRecord.class, activityDAO);
-        //SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
-        //daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
+        SensorDataRecordDAO sensorDAO= new SensorDataRecordDAO();
+        daoManager.registerDaoFor(SensorDataRecord.class, sensorDAO);
 
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
-        //SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
+        SensorStreamGenerator sensorStreamGenerator= new SensorStreamGenerator(getApplicationContext());
         ActivityStreamGenerator activityStreamGenerator= new ActivityStreamGenerator(getApplicationContext());
         FitStreamGenerator fitStreamGenerator= new FitStreamGenerator(getApplicationContext());
 
@@ -294,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
 
 
         ResultCallback<DataSourcesResult> dataSourcesResultCallback = new ResultCallback<DataSourcesResult>() {
+            //@RequiresApi(api = Build.VERSION_CODES.DONUT)
             @Override
             public void onResult(DataSourcesResult dataSourcesResult) {
                 if (dataSourcesResult.getStatus().getStatusCode()==5000)
@@ -359,6 +361,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
 
     }
 
+    //@RequiresApi(api = Build.VERSION_CODES.DONUT)
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult)
     {

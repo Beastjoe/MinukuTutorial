@@ -48,25 +48,25 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //add dependencies
-    compile 'com.android.support:appcompat-v7:24.2.1'
     //compile
+    //compile 'com.github.Cattostar:minukuextended:-SNAPSHOT'
+    //compile 'com.github.InteractionEcologies:minukucore:-SNAPSHOT'
+    //a google play service is required,is the same with location?
+    //google fitness
+    compile 'com.bugfender.sdk:android:0.+'
+    compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.guava:guava:19.0'
     compile 'com.bugfender.sdk:android:0.+'
     compile 'com.firebase:firebase-client-android:2.4.0'
-    //compile 'com.github.Cattostar:minukuextended:-SNAPSHOT'
     compile 'com.github.Cattostar:MinukuExtendedTest:-SNAPSHOT'
     compile 'com.github.Cattostar:minukucore:-SNAPSHOT'
-    //compile 'com.github.InteractionEcologies:minukucore:-SNAPSHOT'
     compile 'com.google.android.gms:play-services-maps:9.2.1'
-    //a google play service is required,is the same with location?
     compile 'com.google.android.gms:play-services-location:9.2.1'
     compile 'com.google.android.gms:play-services-fitness:9.2.1'
-    //google fitness
     compile 'com.google.android.gms:play-services-wearable:9.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:24.2.1'
-    compile 'com.bugfender.sdk:android:0.+'
     testCompile 'junit:junit:4.12'
 }
 
