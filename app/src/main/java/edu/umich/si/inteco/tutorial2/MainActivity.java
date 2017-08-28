@@ -12,13 +12,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 */
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +45,8 @@ import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.concurrent.TimeUnit;
 
 import edu.umich.si.inteco.minuku.config.Constants;
@@ -63,6 +69,8 @@ import edu.umich.si.inteco.minuku.streamgenerator.FitStreamGenerator;
 import edu.umich.si.inteco.minuku.streamgenerator.LocationStreamGenerator;
 import edu.umich.si.inteco.minuku.streamgenerator.SensorStreamGenerator;
 import edu.umich.si.inteco.minukucore.exception.StreamNotFoundException;
+
+import static edu.umich.si.inteco.tutorial2.R.styleable.View;
 
 
 public class MainActivity extends AppCompatActivity implements OnDataPointListener,GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener {
@@ -87,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
     private boolean authInProgress = false;
     private GoogleApiClient mApiClient;//in the main activity
     //private CommonStatusCodes commonStatusCodes=null;
+    private String email ="inteco.tutorials@gmail.com";
+    private String filename = "DataCollection.txt";
 
 
     private static final int READ_LOCATION = 1;
@@ -110,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
         accelerometer_z=(TextView) findViewById(R.id.curr_accelerometerz) ;
         activity=(TextView) findViewById(R.id.curr_activity) ;
         stepCount=(TextView) findViewById(R.id.curr_stepcount) ;
+        Button send_result =(Button)findViewById(R.id.send_result);
         // TODO: implementation
 
         if (savedInstanceState != null) {
@@ -134,6 +145,47 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
         startService(new Intent(getBaseContext(), MinukuNotificationManager.class));
 
         initialize();
+
+        send_result.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(View
+                    arg0) {
+                try {
+                    FileOutputStream fos = openFileOutput(filename,
+                            Context.MODE_APPEND | Context.MODE_WORLD_READABLE);
+                    String storageState = Environment.getExternalStorageState();
+                    if (storageState.equals(Environment.MEDIA_MOUNTED))
+                    {
+                        File file = new File(getExternalFilesDir(null), filename);
+                        //FileOutputStream fos2 = new FileOutputStream(file, true);
+                        //fos2.write("Height (cm): ".getBytes());
+                        //fos2.write(heightvalue.getBytes());
+                        //fos2.write(" Weight (kg): ".getBytes());
+                        //fos2.write(weightvalue.getBytes());
+                        //fos2.write(" Age (yrs): ".getBytes());
+                        //fos2.write(agevalue.getBytes());
+                        //fos2.write(" Gender: ".getBytes());
+                        //fos2.write(gender.getBytes());
+                        //fos2.write(newLine.getBytes());
+                        //fos2.close();
+                        // send the DataCollection.txt by email
+                        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        String[] recipients = new String[]{email, "",};
+                        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
+                        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "DataCollection");
+                        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "This is my data!");
+                        emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                        emailIntent.setType("text/plain");
+                        startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                        finish();
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
     }
 
 
@@ -423,4 +475,8 @@ public class MainActivity extends AppCompatActivity implements OnDataPointListen
         super.onSaveInstanceState(outState);
         outState.putBoolean(AUTH_PENDING, authInProgress);
     }
-}
+
+
+
+    }
+

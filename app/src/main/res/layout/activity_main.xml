@@ -60,6 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/send_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send_result" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
