@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resValue "string", "UNIQUE_FIREBASE_ROOT_URL", "\"https://minuku1-edbe4.firebaseio.com/\""
+        resValue "string", "UNIQUE_FIREBASE_ROOT_URL", "\"https://my-project-1c468.firebaseio.com/\""
     }
     buildTypes {
         release {

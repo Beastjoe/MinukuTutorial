@@ -16,6 +16,7 @@ import edu.umich.si.inteco.minuku.manager.MinukuNotificationManager;
 import edu.umich.si.inteco.minuku.manager.MinukuStreamManager;
 import edu.umich.si.inteco.minuku.model.LocationDataRecord;
 import edu.umich.si.inteco.minuku.streamgenerator.LocationStreamGenerator;
+import edu.umich.si.inteco.minukucore.config.Config;
 import edu.umich.si.inteco.minukucore.exception.StreamNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         MinukuNotificationManager notificationManager = new MinukuNotificationManager();
 
         LocationDataRecordDAO locationDAO = new LocationDataRecordDAO();
-        daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);
+        daoManager.registerDaoFor(LocationDataRecord.class, locationDAO);/*Update the location to the firebase*/
 
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
