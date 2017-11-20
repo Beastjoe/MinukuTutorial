@@ -36,13 +36,38 @@
         android:text="Sampling Speed"
         android:textColor="#000000"/>
 
-    <SeekBar
-        android:id="@+id/samplingFrequency"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="6"
-        android:progress="3" />
+        android:orientation="horizontal"
+        android:id="@+id/rateGroup">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate20"
+            android:text="20Hz" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate30"
+            android:text="30Hz"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate40"
+            android:text="40Hz"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate50"
+            android:text="50Hz"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate80"
+            android:text="80Hz"/>
+    </RadioGroup>
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />

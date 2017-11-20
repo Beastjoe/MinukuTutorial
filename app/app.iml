@@ -82,7 +82,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Beastjoe/MinukuCore/-SNAPSHOT/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Beastjoe/newME2/-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Cattostar/minukucore/-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
@@ -93,6 +92,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/restart-dex" />
@@ -109,7 +110,6 @@
     <orderEntry type="library" exported="" name="support-v4-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-24.2.1" level="project" />
-    <orderEntry type="library" exported="" name="newME2--SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="runner-0.5" level="project" />
     <orderEntry type="library" exported="" name="espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-9.2.1" level="project" />
@@ -129,6 +129,7 @@
     <orderEntry type="library" exported="" name="firebase-iid-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-vision-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="design-24.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-gcm-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="exposed-instrumentation-api-publish-0.5" level="project" />
@@ -144,6 +145,7 @@
     <orderEntry type="library" exported="" name="firebase-config-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-connection-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-panorama-9.2.1" level="project" />
+    <orderEntry type="library" exported="" name="newME2-test0.01" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="MinukuCore--SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-9.2.1" level="project" />
@@ -194,6 +196,7 @@
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="tubesock-0.0.12" level="project" />
+    <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.2.1" level="project" />

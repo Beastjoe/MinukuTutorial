@@ -2,17 +2,22 @@ package edu.umich.si.inteco.tutorial2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import edu.umich.si.inteco.minuku.config.Constants;
+import edu.umich.si.inteco.minuku.config.SensorRate;
 import edu.umich.si.inteco.minuku.logger.Log;
 
 /**
@@ -28,17 +33,26 @@ public class AppSetting extends Activity {
         setContentView(R.layout.setting);
 
         //Change Frequency of Sampling
-        SeekBar samplingFrequency = (SeekBar) findViewById(R.id.samplingFrequency);
-        samplingFrequency.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        RadioGroup rateGroup = (RadioGroup)findViewById(R.id.rateGroup);
+        rateGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int factor, boolean b) {
-                Constants.LOCATION_SAMPLE_FREQUENCY = 24 - factor * 3; // Default 15 is one minute
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                Log.d("zsc","change");
+                RadioButton rateButton = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+                if (rateButton.getText().toString().equals("20Hz")){
+                    Log.d("zsc","20hz");
+                    SensorRate.SENSOR_RATE_CUSTOM = 50000;
+                }
+                else if (rateButton.getText().toString().equals("30Hz")){
+                    SensorRate.SENSOR_RATE_CUSTOM = 33333;
+                }
+                else if (rateButton.getText().toString().equals("40Hz")){
+                    SensorRate.SENSOR_RATE_CUSTOM = 25000;
+                }
+                else if (rateButton.getText().toString().equals("50Hz")){
+                    SensorRate.SENSOR_RATE_CUSTOM = 20000;
+                }
+                else SensorRate.SENSOR_RATE_CUSTOM = 12500;
             }
         });
 

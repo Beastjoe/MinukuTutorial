@@ -30,11 +30,14 @@ import java.util.List;
 import edu.umich.si.inteco.minuku.config.Constants;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.LocationDataRecordDAO;
+import edu.umich.si.inteco.minuku.dao.SensorDataRecordDAO;
 import edu.umich.si.inteco.minuku.manager.MinukuDAOManager;
 import edu.umich.si.inteco.minuku.manager.MinukuNotificationManager;
 import edu.umich.si.inteco.minuku.manager.MinukuStreamManager;
 import edu.umich.si.inteco.minuku.model.LocationDataRecord;
+import edu.umich.si.inteco.minuku.model.SensorDataRecord;
 import edu.umich.si.inteco.minuku.streamgenerator.LocationStreamGenerator;
+import edu.umich.si.inteco.minuku.streamgenerator.SensorStreamGenerator;
 import edu.umich.si.inteco.minukucore.config.Config;
 import edu.umich.si.inteco.minukucore.exception.StreamNotFoundException;
 
@@ -109,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
         LocationChangeSituation situation = new LocationChangeSituation();
         LocationChangeAction action = new LocationChangeAction();
 
+        //Initialize for Sensor
+        SensorDataRecordDAO SensorDAO = new SensorDataRecordDAO();
+        daoManager.registerDaoFor(SensorDataRecord.class, SensorDAO);/*Update the location to the firebase*/
+
+        SensorStreamGenerator sensorStreamGenerator =
+                new SensorStreamGenerator(getApplicationContext());
+
+        //LocationChangeSituation situation = new LocationChangeSituation();
+        //LocationChangeAction action = new LocationChangeAction();
     }
 
     @Override
