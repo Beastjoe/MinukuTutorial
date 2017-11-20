@@ -5,13 +5,13 @@
     <application
         android:name=".MinukuTutorialApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/save"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDWAHJGwg4UkkOn4AGj1nmCQPomcFJnHm0" />
+            android:value="AIzaSyDCvaDvevqrH5xCybDY0TVCHLJ6sI_r1b0" />
 
         <activity
             android:name=".MainActivity"
@@ -23,6 +23,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AppSetting">
         </activity>
 
         <service

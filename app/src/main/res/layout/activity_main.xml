@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="edu.umich.si.inteco.tutorial2.MainActivity">
 
-
+    <include layout="@layout/title"></include>
 
     <TextView
             android:layout_width="wrap_content"
@@ -30,11 +30,11 @@
         android:padding="15dp"
         android:layout_gravity="center"/>
 
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
     </android.support.design.widget.AppBarLayout>
 
 

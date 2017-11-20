@@ -81,8 +81,9 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Shriti-UCI/minukucore/-SNAPSHOT/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Shriti-UCI/minukuextended/-SNAPSHOT/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Beastjoe/MinukuCore/-SNAPSHOT/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Beastjoe/newME2/-SNAPSHOT/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Cattostar/minukucore/-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
@@ -108,10 +109,11 @@
     <orderEntry type="library" exported="" name="support-v4-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-24.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="runner-0.5" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-idling-resource-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="newME2--SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="runner-0.5" level="project" />
+    <orderEntry type="library" exported="" name="espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
+    <orderEntry type="library" exported="" name="hamcrest-library-1.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-clearcut-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-ui-0.2.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-client-android-2.4.0" level="project" />
@@ -119,7 +121,6 @@
     <orderEntry type="library" exported="" name="play-services-wearable-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-9.2.1" level="project" />
-    <orderEntry type="library" exported="" name="minukuextended--SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-annotations-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-api-9.2.1" level="project" />
@@ -130,13 +131,13 @@
     <orderEntry type="library" exported="" name="design-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-gcm-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-messaging-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="exposed-instrumentation-api-publish-0.5" level="project" />
+    <orderEntry type="library" exported="" name="exposed-instrumentation-api-publish-0.5" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-gass-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javax.annotation-api-1.2" level="project" />
+    <orderEntry type="library" exported="" name="javax.annotation-api-1.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-framework-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-9.2.1" level="project" />
@@ -144,8 +145,9 @@
     <orderEntry type="library" exported="" name="firebase-database-connection-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-panorama-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-9.2.1" level="project" />
+    <orderEntry type="library" exported="" name="MinukuCore--SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javawriter-2.1.1" level="project" />
+    <orderEntry type="library" exported="" name="javawriter-2.1.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-impl-9.2.1" level="project" />
@@ -158,7 +160,7 @@
     <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-nearby-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-client-jvm-2.4.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
+    <orderEntry type="library" exported="" name="hamcrest-integration-1.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-impl-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-module-9.2.1" level="project" />
@@ -168,20 +170,20 @@
     <orderEntry type="library" exported="" name="firebase-storage-common-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-maps-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-games-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
+    <orderEntry type="library" exported="" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-identity-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-24.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="espresso-core-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="espresso-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="guava-19.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-base-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
+    <orderEntry type="library" exported="" name="rules-0.5" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-iid-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-24.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
+    <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="gson-2.7" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-2.2.2" level="project" />
@@ -193,9 +195,9 @@
     <orderEntry type="library" exported="" name="firebase-crash-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="tubesock-0.0.12" level="project" />
     <orderEntry type="library" exported="" name="play-services-places-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
+    <orderEntry type="library" exported="" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
+    <orderEntry type="library" exported="" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="android-android-24" level="project" />
   </component>

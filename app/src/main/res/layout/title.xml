@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+
+    tools:context="edu.umich.si.inteco.tutorial2.MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Minuku Tutorial"
+        android:textColor="#000"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/title_edit"
+        android:layout_width="36dp"
+        android:layout_height="34dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dip"
+        android:background="@mipmap/setting" />
+
+
+</LinearLayout>
