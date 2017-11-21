@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 import edu.umich.si.inteco.minuku.config.Constants;
+import edu.umich.si.inteco.minuku.config.SensorRate;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.LocationDataRecordDAO;
 import edu.umich.si.inteco.minuku.dao.SensorDataRecordDAO;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     TextView latitude = null;
     TextView longitude = null;
     LocationDataRecord currentLocation = null;
+    private SensorStreamGenerator sensorStreamGenerator; // try to reinitialize, need a better way
     private static final int READ_LOCATION = 1;
 
     @Override
@@ -65,15 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         initialize();
 
-        //Setting
-        Button settings = (Button) findViewById(R.id.title_edit);
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AppSetting.class);
-                startActivityForResult(intent, 1);
-            }
-        });
+
     }
 
     private void setUserID() {
@@ -114,13 +108,20 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize for Sensor
         SensorDataRecordDAO SensorDAO = new SensorDataRecordDAO();
-        daoManager.registerDaoFor(SensorDataRecord.class, SensorDAO);/*Update the location to the firebase*/
+        daoManager.registerDaoFor(SensorDataRecord.class, SensorDAO);
 
-        SensorStreamGenerator sensorStreamGenerator =
+        sensorStreamGenerator =
                 new SensorStreamGenerator(getApplicationContext());
 
-        //LocationChangeSituation situation = new LocationChangeSituation();
-        //LocationChangeAction action = new LocationChangeAction();
+        //Setting
+        Button settings = (Button) findViewById(R.id.title_edit);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AppSetting.class);
+                startActivityForResult(intent, 1);
+            }
+        });
     }
 
     @Override
@@ -172,13 +173,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Get User Email from Setting
+    //Get User Email, Frequency from Setting
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case 1:
-
                 if (resultCode == RESULT_OK) {
+                    sensorStreamGenerator.resetListener(); //reset the frequency
                     String userEmail = data.getStringExtra("User_Email");
                     Log.d("zsc",userEmail);
                     setUserID(userEmail);

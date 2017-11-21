@@ -25,7 +25,6 @@ import edu.umich.si.inteco.minuku.logger.Log;
  */
 
 public class AppSetting extends Activity {
-    public static boolean INTERMITTENT_SAMPLING = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +36,8 @@ public class AppSetting extends Activity {
         rateGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                Log.d("zsc","change");
                 RadioButton rateButton = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
                 if (rateButton.getText().toString().equals("20Hz")){
-                    Log.d("zsc","20hz");
                     SensorRate.SENSOR_RATE_CUSTOM = 50000;
                 }
                 else if (rateButton.getText().toString().equals("30Hz")){
@@ -62,9 +59,9 @@ public class AppSetting extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean flag) {
                 if (flag) {
-                    AppSetting.INTERMITTENT_SAMPLING = true;
+                    Constants.INTERMITTENT_SAMPLING = true;
                 }
-                else AppSetting.INTERMITTENT_SAMPLING = false;
+                else Constants.INTERMITTENT_SAMPLING = false;
             }
         });
 
