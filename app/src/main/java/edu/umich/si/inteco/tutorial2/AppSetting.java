@@ -2,6 +2,7 @@ package edu.umich.si.inteco.tutorial2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -18,7 +19,11 @@ import android.widget.TextView;
 
 import edu.umich.si.inteco.minuku.config.Constants;
 import edu.umich.si.inteco.minuku.config.SensorRate;
+import edu.umich.si.inteco.minuku.dao.SensorDataRecordDAO;
 import edu.umich.si.inteco.minuku.logger.Log;
+import edu.umich.si.inteco.minuku.manager.MinukuDAOManager;
+import edu.umich.si.inteco.minuku.model.SensorDataRecord;
+import edu.umich.si.inteco.minuku.streamgenerator.SensorStreamGenerator;
 
 /**
  * Created by Joe on 2017/11/19.
@@ -54,14 +59,37 @@ public class AppSetting extends Activity {
         });
 
         //Intermittent Sampling
-        Switch intermittentSampling = (Switch) findViewById(R.id.intermittent_sampling);
+        final Switch intermittentSampling = (Switch) findViewById(R.id.intermittent_sampling);
+        if (Constants.INTERMITTENT_SAMPLING) intermittentSampling.setChecked(true);
+        else intermittentSampling.setChecked(false);
         intermittentSampling.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean flag) {
                 if (flag) {
                     Constants.INTERMITTENT_SAMPLING = true;
+                    intermittentSampling.setChecked(true);
                 }
-                else Constants.INTERMITTENT_SAMPLING = false;
+                else {
+                    Constants.INTERMITTENT_SAMPLING = false;
+                    intermittentSampling.setChecked(false);
+                }
+            }
+        });
+
+
+        //Optimized Data Record
+        final Switch optimizedDateRecord = (Switch) findViewById(R.id.optimized_dataRecord);
+        if (Constants.DATA_OPTIMZED) optimizedDateRecord.setChecked(true);
+        else optimizedDateRecord.setChecked(false);
+        optimizedDateRecord.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean flag) {
+                if (flag) {
+                    Constants.DATA_OPTIMZED = true;
+                }
+                else {
+                    Constants.DATA_OPTIMZED = false;
+                }
             }
         });
 

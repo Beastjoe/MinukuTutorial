@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\MECHREVO\.android\build-cache\450444db652e1e028fb7714a1eea25b214f25923\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f0faebd5be7f12216b3258a1b6489e00aa54ba19">
+        <dex dex="C:\Users\MECHREVO\MinukuTutorial\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_715de010cf6278c80aff1aae5db4219f97170c3c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\MECHREVO\MinukuTutorial\app\build\intermediates\exploded-aar\com.github.Beastjoe\MinukuCore\-SNAPSHOT\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -27,15 +36,6 @@
         revision="25.0.0"
         sha1="266fcdd4c665c8542c221a5af29030645fe8ea02">
         <dex dex="C:\Users\MECHREVO\MinukuTutorial\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_69b224cea5a2bce344dd335db44c393728691c8f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\MECHREVO\.android\build-cache\e6ce9fa73e8359d71dcfc9490171634657476f31\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="688639d42c034754d6af487b3e6d7a90bcbd339d">
-        <dex dex="C:\Users\MECHREVO\MinukuTutorial\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_dd64bdd62af4aa8f9b685a8fe0d1c1d4f1e2a717\classes.dex" />
     </item>
 
 </items>

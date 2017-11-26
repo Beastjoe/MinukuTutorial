@@ -21,10 +21,11 @@
 
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/optimized_dataRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Switch"
+        android:text="Optimize Data Record"
+        android:checked="false"
         android:padding="15dp"/>
 
     <TextView

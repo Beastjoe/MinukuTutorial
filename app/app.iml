@@ -118,6 +118,7 @@
     <orderEntry type="library" exported="" name="firebase-client-android-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-wearable-9.2.1" level="project" />
+    <orderEntry type="library" exported="" name="newME2-test0.017" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-9.2.1" level="project" />
@@ -146,7 +147,6 @@
     <orderEntry type="library" exported="" name="play-services-panorama-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="MinukuCore--SNAPSHOT" level="project" />
-    <orderEntry type="library" exported="" name="newME2-test0.02" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="javawriter-2.1.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-9.2.1" level="project" />
